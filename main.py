@@ -1,5 +1,13 @@
 
 
+import os
+import webapp2
+import jinja2
+from google.appengine.ext import ndb
+import urllib
+from google.appengine.api import urlfetch
+
+
 entryDict = []
 
 def averageList(l):
@@ -54,5 +62,7 @@ class retrieveData():
 	def averageCourseRating(self):
 		ratingList = [entry.courseRating for entry in self.entryList]
 		return averageList(ratingList)
+
+
 
 
