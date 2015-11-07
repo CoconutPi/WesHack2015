@@ -11,12 +11,13 @@ from zlib import *
 import platform
 import sys
 
+
+
 browserVersion = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1'
 
 courseIndicator = "!wesmaps_page.html?subj_page="
 
 defaultPage = "https://iasext.wesleyan.edu/regprod/"
-
 
 def zlibDecode(data):
 	return decompress(data, 16 + MAX_WBITS)
@@ -55,39 +56,73 @@ def download(link,File):
 	Mozilla.retrieve(link,File)
 	return None
 
-courseDictionary = {}
-html = htmlGet("https://iasext.wesleyan.edu/regprod/!wesmaps_page.html")
-for line in range(len(html)):
-	textLine = html[line]
-	if courseIndicator in textLine:
+class departmentDict:
+	def __init__(self):
+		self.dict = {}
 
-		beginLink = textLine.find(courseIndicator)
-		endLink = textLine.find("\">")
-		extension = textLine[beginLink:endLink]
-		link = defaultPage + extension
+		self.html = htmlGet("https://iasext.wesleyan.edu/regprod/!wesmaps_page.html")
+		for line in range(len(self.html)):
+			self.textLine = self.html[line]
+			if courseIndicator in self.textLine:
+		
+				self.beginLink = self.textLine.find(courseIndicator)
+				self.endLink = self.textLine.find("\">")
+				self.extension = self.textLine[self.beginLink:self.endLink]
+				self.link = defaultPage + self.extension
 
-		beginName = endLink+2
-		endName = textLine.find("</a><br>")
-		name = textLine[beginName:endName]
+				self.beginName = self.endLink+2
+				self.endName = self.textLine.find("</a><br>")
+				self.name = self.textLine[self.beginName:self.endName]
 
-		code = link[65:69]
+				self.endCode = 65 + self.link[65:].find("&")
 
-		courseDictionary[code] = (name,link)
+				self.code = self.link[65:self.endCode]
+
+				self.dict[self.code] = (self.name,self.link)
+
+class courseDict:
+	
+	def __init__(self,departmentCode):
+		self.set = set()
+
+		self.link = "https://iasext.wesleyan.edu/regprod/!wesmaps_page.html?crse_list=" + departmentCode.upper() + "&term=1159&offered=Y"
+		html = htmlGet(self.link)
+		for line in html:
+			if "<a href=\"" in line:
+				self.beginCode = line.find("\">")+2
+				line = line[self.beginCode:]
+				self.endCode = line.find("-")
+				code = line[:self.endCode]
+				self.set.add(code)
+
+		self.link = "https://iasext.wesleyan.edu/regprod/!wesmaps_page.html?crse_list=" + departmentCode.upper() + "&term=1159&offered=N"
+		html = htmlGet(self.link)
+		for line in html:
+			if "<a href=\"" in line:
+				self.beginCode = line.find("\">")+2
+				line = line[self.beginCode:]
+				self.endCode = line.find("</a>")
+				code = line[:self.endCode]
+				self.set.add(code)
 
 
-		#print(link)
-		#print(name)
-		#print(code)
-		#print line,html[line]
-for i in courseDictionary:
-	print(i)
+#Just run this function to get the list of every courses offered at Wesleyan. It takes one minute to retrieve this data through airwes.
+#This function returns a one dimensional list.
+def getCourseList():
+	courseList = []
+	for i in departmentDict().dict:
+		print "Retrieving course",i
+		clist = courseDict(i)
+		for j in clist.set:
+			courseList.append(j)
+
+	courseList = list(set(courseList))
+	return courseList
 
 
 
-"https://iasext.wesleyan.edu/regprod/"
-
-print(len(courseIndicator))
-
-courseDictionary = {}
 
 
+
+
+		
