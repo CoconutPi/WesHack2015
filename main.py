@@ -84,7 +84,7 @@ class HomePageHandler(webapp2.RequestHandler):
         template_values = {
             'posts' : post_data
         }
-        template = JINJA_ENVIRONMENT.get_template('test_forum.html')
+        template = JINJA_ENVIRONMENT.get_template('index.html')
         self.response.write(template.render(template_values))
 
     def post(self):
