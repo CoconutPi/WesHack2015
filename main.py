@@ -13,7 +13,7 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 entryDict = []
 # Define a Post model for the Datastore
 class Post(ndb.Model):
-	courseCode = ndb.KeyProperty(required=True)
+	courseCode = ndb.StringProperty(required=True)
 	year = ndb.StringProperty(required=True)
 	professor = ndb.StringProperty(required=True)
 	grade = ndb.StringProperty(required=True)
@@ -22,16 +22,16 @@ class Post(ndb.Model):
 	date = ndb.DateTimeProperty(auto_now_add=True)
 
 
-class ResultHandler(webapp2.RequestHandler):
+class SuccessfulHandler(webapp2.RequestHandler):
     def get(self):
-        query = Post.query(Post.courseCode=="courseCode")
+        query = Post.query()
         post_data = query.fetch()
         # Pass the data to the template
         template_values = {
             'course_posts' : post_data
         }
         template = JINJA_ENVIRONMENT.get_template('addsuccessful.html')
-        self.response.write(template.generate(template_values))
+        self.response.write(template.render(template_values))
 
     def post(self):
         # Get the student name and university from the form
@@ -46,13 +46,12 @@ class ResultHandler(webapp2.RequestHandler):
 
         post.put()
         # Redirect to the main handler that will render the template
-        self.redirect('/addsuccessful')
+        self.redirect('/successful')
 
 class CommentHandler(webapp2.RequestHandler):
     def get(self):
         # Get all of the student data from the datastore
-        post_id_key = self.request.get("id")
-        post_key = ndb.Key(urlsafe=post_id_key)
+        post_key = ndb.Key(urlsafe=url_string)
         shown_post = post_key.get()
         shown_post.put()
 
@@ -85,14 +84,10 @@ class HomePageHandler(webapp2.RequestHandler):
     def get(self):
         template = JINJA_ENVIRONMENT.get_template('index.html')
         self.response.out.write(template.render())
-class SuccessfulHandler(webapp2.RequestHandler):
-    def get(self):
-        template = JINJA_ENVIRONMENT.get_template('addsuccessful.html')
-        self.response.out.write(template.render())
+
 
 app = webapp2.WSGIApplication([
     ('/', HomePageHandler),
-	('/result', ResultsHandler),
+	('/successful', SuccessfulHandler),
 	('/forum', CommentHandler),
-    ('/successful', SuccessfulHandler),
 	], debug=True)

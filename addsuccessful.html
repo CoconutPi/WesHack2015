@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% autoescape true %}
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
@@ -47,6 +48,19 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/">HOME</a></li>
                     <li><a href="/#contact">CONTACT</a></li>
+                    <div id="post-design">
+                      <div id="somewhat-post-design">
+      <!-- <img src="img/Road To College2.jpg" alt="Icon" style="width:1000px;height:1000px;"> -->
+  {% for post in course_posts %}
+          <p> {{ post.courseCode }}</p>
+          <p>By {{ post.professor }}</p>
+          <p>{{ post.date.strftime("%d/%m/%y") }}</p>
+          <p>{{ post.grade }}</p>
+          <p>{{ post.courseReview }}</p>
+          <p>{{ post.professorReview }}</p>
+        {% endfor %}
+      </div>
+</div>
 
                 </ul>
             </div>
@@ -77,3 +91,4 @@
 
   </body>
   </html>
+{% endautoescape %}

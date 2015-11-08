@@ -37,7 +37,8 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 </head>
-<body >
+<body>
+    <form id="forum"action="/successful" method="post">
      <div class="navbar navbar-inverse navbar-fixed-top scrollclass" >
         <div class="container">
             <div class="navbar-header">
@@ -123,7 +124,7 @@
             <div class="row text-center g-pad-bottom">
                 <div class="col-md-8 col-md-offset-2 ">
                 </div>
-                <form action="result.html" method="post">
+                <form action="/successful" method="post">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -147,7 +148,7 @@
                                 <textarea name="courseReview" id="message" required="required" class="form-control" style="min-height:200px;" placeholder="Course Review"></textarea>
                             </div>
                             <div class="form-group">
-                                <textarea name="message" id="message" required="required" class="form-control" style="min-height:200px;" placeholder="Professor Review" name="professorReview"></textarea>
+                                <textarea name="professorReview" id="message" required="required" class="form-control" style="min-height:200px;" placeholder="Professor Review"></textarea>
                             </div>
                             <div class="form-group">
 
@@ -157,11 +158,11 @@
                         </div>
                     </div>
                 </form>
-                {% for post in course_posts %}
+                <!-- {% for post in course_posts %}
                 <div class ="post-design">
-                  <h3 id ="nombre"><a href="/result">Title: {{ post.courseCode }}</a></h3>
+                  <h3 id ="nombre"><a href="/successful">Title: {{ post.courseCode }}</a></h3>
                 </div>
-  {% endfor %}
+  {% endfor %} -->
             </div>
         </div>
     </section>
