@@ -64,7 +64,7 @@ class departmentDict:
 		for line in range(len(self.html)):
 			self.textLine = self.html[line]
 			if courseIndicator in self.textLine:
-		
+
 				self.beginLink = self.textLine.find(courseIndicator)
 				self.endLink = self.textLine.find("\">")
 				self.extension = self.textLine[self.beginLink:self.endLink]
@@ -81,7 +81,7 @@ class departmentDict:
 				self.dict[self.code] = (self.name,self.link)
 
 class courseDict:
-	
+
 	def __init__(self,departmentCode):
 		self.set = set()
 
@@ -111,18 +111,11 @@ class courseDict:
 def getCourseList():
 	courseList = []
 	for i in departmentDict().dict:
-		print "Retrieving course",i
+		print i
 		clist = courseDict(i)
 		for j in clist.set:
 			courseList.append(j)
 
 	courseList = list(set(courseList))
 	return courseList
-
-
-
-
-
-
-
-		
+print(getCourseList())

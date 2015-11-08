@@ -16,13 +16,13 @@
     <title>Cardinal Course</title>
     <!--REQUIRED STYLE SHEETS-->
     <!-- BOOTSTRAP CORE STYLE CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Github/WesHack2015/assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLE CSS -->
-    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Github/WesHack2015/assets/css/font-awesome.min.css" rel="stylesheet" />
       <!-- VEGAS STYLE CSS -->
-    <link href="assets/scripts/vegas/jquery.vegas.min.css" rel="stylesheet" />
+    <link href="~/Github/WesHack2015/assets/plugins/scripts/vegas/jquery.vegas.min.css" rel="stylesheet" />
     <!-- CUSTOM STYLE CSS -->
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="~/Github/WesHack2015/assets/css/style.css" rel="stylesheet" />
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -62,10 +62,51 @@
             <div class="col-md-12">
                 <span class="head-main">CARDINAL COURSE </span>
                 <h3 class="head-last">Browse. </h3>
+
                 <form id="searchbox" action="">
                 <input id="search" type="text" placeholder="Course Code">
                 <input id="submit" type="submit" value="Search" style="color:black"</button>
+                <meta charset="utf-8">
+                <title>jQuery UI Autocomplete - Default functionality</title>
+                <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+                <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+                <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+                <script>
+                  function() {
+                  var availableTags = [
+                    "MATH211",
+                    "",
+                    "Asp",
+                    "BASIC",
+                    "C",
+                    "C++",
+                    "Clojure",
+                    "COBOL",
+                    "ColdFusion",
+                    "Erlang",
+                    "Fortran",
+                    "Groovy",
+                    "Haskell",
+                    "Java",
+                    "JavaScript",
+                    "Lisp",
+                    "Perl",
+                    "PHP",
+                    "Python",
+                    "Ruby",
+                    "Scala",
+                    "Scheme"
+                  ];
+                  $( "#tags" ).autocomplete({
+                    source: availableTags
+                  });
+                });
+                </script>
                 </form>
+                <div class="ui-widget">
+                  <label for="tags">Tags: </label>
+                  <input id="tags">
+                </div>
                 <br>
                 <h3 class="head-last">Share. </h3>
                 <a href="#about" class="btn btn-primary btn-lg ">Add Your Review</a>
