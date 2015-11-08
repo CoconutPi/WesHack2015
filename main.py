@@ -22,7 +22,8 @@ class entry:
 		profReview=None,
 		courseReview=None,
 		courseRating=None,
-		profRating=None):
+		profRating=None,
+		difficulty=None):
 
 		self.courseCode = courseCode
 		self.professor = professor
@@ -31,6 +32,7 @@ class entry:
 		self.courseReview = courseReview
 		self.courseRating = courseRating
 		self.profRating = profRating
+		self.difficulty = difficulty
 
 		entryDict.append(self)
 
@@ -53,7 +55,7 @@ class retrieveData():
 
 	def averageGrade(self):
 		gradeList = [entry.grade for entry in self.entryList]
-		return 
+		return averageList(gradeList)
 
 	def averageProfRating(self):
 		ratingList = [entry.profRating for entry in self.entryList]
