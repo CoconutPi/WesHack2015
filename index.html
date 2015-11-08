@@ -13,7 +13,7 @@
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
-    <title>Cardinal Course</title>
+    <title>Cardinal Courses</title>
     <!--REQUIRED STYLE SHEETS-->
     <!-- BOOTSTRAP CORE STYLE CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
@@ -47,7 +47,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#home">HOME</a></li>
                     <li><a href="#contact">CONTACT</a></li>
-
+                    <li><a href="#about">ABOUT</a></li>
                 </ul>
             </div>
 
@@ -60,26 +60,26 @@
     <div class="container" id="home">
         <div class="row text-center scrollclass">
             <div class="col-md-12">
-                <span class="head-main">CARDINAL COURSE </span>
+                <span class="head-main">CARDINAL COURSES </span>
                 <h3 class="head-last">Browse. </h3>
+                <!--search box-->
                 <form id="searchbox" action="">
-                <input id="search" type="text" placeholder="Course Code">
-                <input id="submit" type="submit" value="Search" style="color:black"</button>
+                  <input id="search" type="text" style="background-color:White; color:Black; border-color:White" placeholder="Course Code"/>
+                  <input id="submit" type="submit" value="Search" style="color:black"</button>
                 </form>
+                <!--end search box-->
                 <br>
                 <h3 class="head-last">Share. </h3>
                 <a href="#about" class="btn btn-primary btn-lg ">Add Your Review</a>
                 <br>
-                <h3 class="head-last">Keep Updated. </h3>
-                <a href="#clients-testimonial" class="btn btn-primary btn-lg ">Read Recent Posts</a>
 
             </div>
         </div>
     </div>
     <!--END HOME SECTION-->
 
-    <!--add your own SECTION (about)-->
-    <section class="for-full-back color-bg-one" id="about">
+    <!--add your own SECTION -->
+    <section class="for-full-back color-bg-one" id="add">
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-8 col-md-offset-2 ">
@@ -88,7 +88,7 @@
                 <div class="row text-center">
                     <div class="col-md-8 col-md-offset-2 ">
                         <h5>
-                           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                           Tell us about your course.
 
 
                         </h5>
@@ -102,7 +102,7 @@
             <div class="row text-center g-pad-bottom">
                 <div class="col-md-8 col-md-offset-2 ">
                 </div>
-                <form>
+                <form action="addsuccessful.html">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -141,84 +141,69 @@
                 </form>
 
             </div>
+        </div>
+    </section>
+    <!--END add your own ABOUT SECTION-->
 
 
+    <!--ABOUT SECTION-->
+    <section id="about">
+     <div class="container">
+         <div class="row text-center">
+             <div class="col-md-12 ">
 
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-8 col-md-offset-2 ">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="for-full-back color-bg-one" id="about">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-8 col-md-offset-2 ">
+                    <h1>ABOUT US</h1>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <section class="for-full-back color-white" id="about-team">
+        <div class="container">
+            <div class="row text-center g-pad-bottom">
+                <div class="col-md-8 col-md-offset-2 ">
+                </div>
+                <br />
+                Cardinal Courses provides material-based reviews for all courses at Wesleyan University.
+                <br />
+                <br />
+                Our mission is to provide a platform where anyone can browse and share experience to help friends make the best decision of their college life.
+                <br />
+            </div>
         </div>
     </section>
     <!--END ABOUT SECTION-->
 
-     <!--recent review SECTION(CLIENT TESTIMONIALS)-->
-       <section id="clients-testimonial">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-12 ">
-                    <h1>Recent Reviews</h1>
- <div id="carousel-example" class="carousel slide" data-ride="carousel">
 
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example" data-slide-to="1"></li>
-                        <li data-target="#carousel-example" data-slide-to="2"></li>
-                    </ol>
 
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <div class="container center">
-                                <div class="col-md-6 col-md-offset-3 slide-custom">
 
-                                    <h4><i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit onec molestie non sem vel condimentum. <i class="fa fa-quote-right"></i></h4>
-                                     <div class="user-img pull-right">
-						<img src="assets/img/user.gif" alt="" class="img-u image-responsive"  />
-					</div>
-                                    <h5 class="pull-right"><strong class="c-black">Lorem Dolor</strong></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="container center">
-                                <div class="col-md-6 col-md-offset-3 slide-custom">
-                                    <h4> <i class="fa fa-quote-left"></i> Aenean faucibus luctus enim. Duis quis sem risu suspend lacinia elementum nunc. <i class="fa fa-quote-right"></i></h4>
-                                         <div class="user-img pull-right">
-						<img src="assets/img/user2.png" alt="" class="img-u image-responsive"  />
-					</div>
-                                    <h5 class="pull-right"><strong class="c-black">Faucibus luctus</strong></h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="container center">
-                                <div class="col-md-6 col-md-offset-3 slide-custom">
-                                    <h4><i class="fa fa-quote-left"></i>Sed ultricies, libero ut adipiscing fringilla, ante elit luctus lorem, a egestas dui metus a arcu condimentum. <i class="fa fa-quote-right"></i></h4>
-                                        <div class="user-img pull-right">
-						<img src="assets/img/user.gif" alt="" class="img-u image-responsive"  />
-					</div>
-                                    <h5 class="pull-right"><strong class="c-black">Sed ultricies</strong></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                    </div>
-                </div>
-            </div>
-           </section>
-     <!--END CLIENT TESTIMONIALS SECTION-->
 
 
 
     <!--CONTACT SECTION-->
-    <section class="for-full-back color-bg-one" id="contact">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-8 col-md-offset-2 ">
-                    <h1>Contact</h1>
+    <section id="contact">
+     <div class="container">
+         <div class="row text-center">
+             <div class="col-md-12 ">
+
                 </div>
                 <div class="row text-center">
                     <div class="col-md-8 col-md-offset-2 ">
-                        <h5>
-                        Alina, Pi, Nicolas, Poom
-                        </h5>
+
                     </div>
                 </div>
             </div>
@@ -227,12 +212,22 @@
     <section class="for-full-back color-white text-center" id="contact-inner">
         <div class="container">
 
-                     <div id="add">
+          <div class="row text-center">
+              <div class="col-md-12 ">
+                     <h1>Contact</h1>
+                 </div>
+                 <div class="row text-center">
+                     <div class="col-md-8 col-md-offset-2 ">
+                         <h5>
+                         Alina, Pi, Nicolas, Poom
+                         </h5>
                          <br />
                                                 KAI WESHACK
                         <br />
                          WESLEYAN UNIVERSITY
-                    </div>
+                     </div>
+                 </div>
+             </div>
 
         </div>
     </section>
@@ -243,15 +238,15 @@
             <div class="row text-center">
                     <div class="col-md-4 scl scl-dark-bk">
 					<h4>FACEBOOK</h4>
-					<p class="text-center"><a href="#"><i class="fa fa-facebook fa-5x"></i></a></p>
+					<p class="text-center"><a href="https://www.facebook.com/wesleyan.university/?fref=ts"><i class="fa fa-facebook fa-5x"></i></a></p>
 				</div>
 				<div class="col-md-4 scl">
 					<h4 >TWITTER</h4>
-					<p class="text-center"><a href="#"><i class="fa fa-twitter fa-5x"></i></a></p>
+					<p class="text-center"><a href="https://twitter.com/wesleyan_u?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa fa-twitter fa-5x"></i></a></p>
 				</div>
 				<div class="col-md-4 scl scl-dark-bk">
 					<h4 >GOOGLE +</h4>
-					<p class="text-center"><a href="#"><i class="fa fa-google-plus fa-5x"></i></a></p>
+					<p class="text-center"><a href="https://plus.google.com/116598504801549341683/about"><i class="fa fa-google-plus fa-5x"></i></a></p>
 				</div>
                     </div>
             </div>
@@ -260,7 +255,7 @@
     <!--END SOCIAL SECTION-->
     <!--FOOTER SECTION -->
     <div class="for-full-back" id="footer">
-        2014 www.yourdomain.com | All Right Reserved | by: <a href="http://binarytheme.com" target="_blank" style="color:#fff" >www.binarytheme.com</a>
+        2014 http://cardinalcourses.appspot.com/ | All Right Reserved | by: <a href="http://binarytheme.com" target="_blank" style="color:#fff" >www.binarytheme.com</a>
 
     </div>
     <!-- END FOOTER SECTION -->

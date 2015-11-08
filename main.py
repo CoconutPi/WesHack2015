@@ -7,6 +7,12 @@ from google.appengine.ext import ndb
 import urllib
 from google.appengine.api import urlfetch
 
+JINJA_ENVIRONMENT = jinja2.Environment(
+	loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
+	extensions=['jinja2.ext.autoescape'],
+	autoescape=True
+)
+
 
 entryDict = []
 
@@ -53,7 +59,7 @@ class retrieveData():
 
 	def averageGrade(self):
 		gradeList = [entry.grade for entry in self.entryList]
-		return 
+		return
 
 	def averageProfRating(self):
 		ratingList = [entry.profRating for entry in self.entryList]
@@ -64,5 +70,10 @@ class retrieveData():
 		return averageList(ratingList)
 
 
-
-
+class HomePageHandler(webapp2.RequestHandler):
+	def get(self):
+		template = JINJA_ENVIRONMENT.get_template('index.html')
+		self.response.out.write(template.render())
+app = webapp2.WSGIApplication([
+	('/', HomePageHandler),
+], debug=True)
