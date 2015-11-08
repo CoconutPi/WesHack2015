@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>Cardinal Course</title>
+    <!--REQUIRED STYLE SHEETS-->
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLE CSS -->
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+      <!-- VEGAS STYLE CSS -->
+    <link href="assets/plugins/vegas/jquery.vegas.min.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <!-- GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body >
+     <div class="navbar navbar-inverse navbar-fixed-top scrollclass" >
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--[logo]-->
+                <a class="navbar-brand" href="index.html"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/31/Wesleyan_University_Shield.svg/917px-Wesleyan_University_Shield.svg.png" alt="logo" height="42" width="42" /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/#contact">CONTACT</a></li>
+                    <div id="post-design">
+                      <div id="somewhat-post-design">
+      <!-- <img src="img/Road To College2.jpg" alt="Icon" style="width:1000px;height:1000px;"> -->
+
+      </div>
+</div>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!--add successful-->
+    <section class="for-full-back color-bg-one" id="about">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-8 col-md-offset-2 ">
+                  {% for post in course_posts %}
+                    <h1><p> {{ post.courseCode }}</p></h1>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-8 col-md-offset-2 ">
+
+
+                              <p>By {{ post.professor }}</p>
+                              <p>Posted on {{ post.date.strftime("%d/%m/%y") }}</p>
+                              <p>Grade: {{ post.grade }}</p>
+                              <p>Course Review: {{ post.courseReview }}</p>
+                              <p>Professor Review: {{ post.professorReview }}</p>
+                            {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+  </body>
+  </html>
+{% endautoescape %}
