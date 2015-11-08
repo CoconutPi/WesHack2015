@@ -13,7 +13,7 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 entryDict = []
 # Define a Post model for the Datastore
 class Post(ndb.Model):
-	courseCode = ndb.StringProperty(required=True)
+	courseCode = ndb.KeyProperty(required=True)
 	year = ndb.StringProperty(required=True)
 	professor = ndb.StringProperty(required=True)
 	grade = ndb.StringProperty(required=True)
@@ -22,18 +22,15 @@ class Post(ndb.Model):
 	date = ndb.DateTimeProperty(auto_now_add=True)
 
 
-class ForumHandler(webapp2.RequestHandler):
+class ResultHandler(webapp2.RequestHandler):
     def get(self):
-        # Get all of the student data from the datastore
-        query = Post.query()
-        filtered_query.filter(Post.courseCode)
-
-        post_data = filtered_query.fetch()
+        query = Post.query(Post.courseCode=="courseCode")
+        post_data = query.fetch()
         # Pass the data to the template
         template_values = {
             'course_posts' : post_data
         }
-        template = JINJA_ENVIRONMENT.get_template('forum.html')
+        template = JINJA_ENVIRONMENT.get_template('addsuccessful.html')
         self.response.write(template.generate(template_values))
 
     def post(self):
@@ -46,9 +43,10 @@ class ForumHandler(webapp2.RequestHandler):
         professorReview = self.request.get('professorReview')
         # Create a new Student and put it in the datastore
         post = Post(courseCode=courseCode, year=year, professor=professor, grade=grade, courseReview=courseReview, professorReview = professorReview)
+
         post.put()
         # Redirect to the main handler that will render the template
-        self.redirect('/forum')
+        self.redirect('/addsuccessful')
 
 class CommentHandler(webapp2.RequestHandler):
     def get(self):
@@ -63,18 +61,14 @@ class CommentHandler(webapp2.RequestHandler):
         template_values = {
             'posts' : shown_post_array
         }
-        template = JINJA_ENVIRONMENT.get_template('showposts.html')
+        template = JINJA_ENVIRONMENT.get_template('forum.html')
         self.response.write(template.render(template_values))
 
     def post(self):
         # Create the comment in the Database
         name = self.request.get('name')
         comment = self.request.get('comment')
-        db_comment = Comment(
-            name=name,
-            comment=comment
-        )
-        comment_key = db_comment.put()
+
 
         # Find the post that was commented on using the hidden post_url_key
         post_url_key = self.request.get('post_url_key')
@@ -85,14 +79,20 @@ class CommentHandler(webapp2.RequestHandler):
         post.comment_keys.append(comment_key)
         post.put()
 
-        self.redirect('/showposts?id=' + post.key.urlsafe())
+        self.redirect('/forum?id=' + post.key.urlsafe())
 
 class HomePageHandler(webapp2.RequestHandler):
     def get(self):
         template = JINJA_ENVIRONMENT.get_template('index.html')
         self.response.out.write(template.render())
+class SuccessfulHandler(webapp2.RequestHandler):
+    def get(self):
+        template = JINJA_ENVIRONMENT.get_template('addsuccessful.html')
+        self.response.out.write(template.render())
+
 app = webapp2.WSGIApplication([
     ('/', HomePageHandler),
-	('/forum', ForumHandler),
-	('/showposts', CommentHandler),
+	('/result', ResultsHandler),
+	('/forum', CommentHandler),
+    ('/successful', SuccessfulHandler),
 	], debug=True)

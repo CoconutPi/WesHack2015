@@ -8,19 +8,7 @@
   <body>
 
 
-    <form id="forum"action="/forum?={{}}" method="post">
-
-  <div class="nav">
-  	<div class="container">
-  		<ul class="pull-left">
-  			<li><a href="/" >Home</a></li>
-  			<li><a href= "scholarships"> Scholarships</a></li>
-  			<li><a href="about">About</a></li>
-  			<li><a href ="forum">Advice Forum</a></li>
-  		</ul>
-  		</ul>
-  	</div>
-  </div>
+    <form id="forum"action="/forum" method="post">
 
       <div class="jumbotron">
         <div class= "aboutpage">
@@ -36,10 +24,19 @@
 <div class= "background">
 <!-- <h2>Posts</h2> -->
 
-      {% for post in course_posts %}
+      {% for post in posts %}
       <div class ="post-design">
-        <h3 id ="nombre"><a href="/forum?id={{post.key.urlsafe()}}">Title: {{ post.title }}</a></h3>
-        <h3 id= "nombre">Author: {{ post.author }}</h3>
+        <h3 id ="nombre"><a href="/result?id={{post.key.urlsafe()}}">Title: {{ post.courseCode }}</a></h3>
+        <h3 id= "nombre">Professor: {{ post.professor }}</h3>
         <h5 id= "nombre">{{ post.date.strftime("%d/%m/%y") }}</h5>
       </div>
-{% endfor %}
+        {% endfor %}
+
+
+
+
+</div>
+  </div>
+  </body>
+</html>
+{% endautoescape %}
