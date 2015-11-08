@@ -11,6 +11,7 @@ JINJA_ENVIRONMENT = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 entryDict = []
+<<<<<<< HEAD
 # Define a Post model for the Datastore
 class Post(ndb.Model):
 	courseCode = ndb.StringProperty(required=True)
