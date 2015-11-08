@@ -63,14 +63,15 @@
             <div class="col-md-12">
                 <span class="head-main">CARDINAL COURSE </span>
                 <h3 class="head-last">Browse. </h3>
-                <input type="text" name="search" placeholder="What course are you looking for?" size="30">
-                <br>
-                <a href="#about" class="btn btn-primary btn-lg ">Search</a>
+                <form id="searchbox" action="">
+                <input id="search" type="text" placeholder="Course Code">
+                <input id="submit" type="submit" value="Search">
+                </form>
                 <br>
                 <h3 class="head-last">Share. </h3>
                 <a href="#about" class="btn btn-primary btn-lg ">Add Your Review</a>
                 <br>
-                <h3 class="head-last">Share. </h3>
+                <h3 class="head-last">Keep Updated. </h3>
                 <a href="#clients-testimonial" class="btn btn-primary btn-lg ">Read Recent Posts</a>
 
             </div>
@@ -103,77 +104,45 @@
                 <div class="col-md-8 col-md-offset-2 ">
                 </div>
                 <form>
-                  Course Code:<br>
-                  <input type="text" name="courses" placeholder="What course did you take?" size="80">
-                  <br>
-                  Year:<br>
-                  <input type="text" name="year" placeholder="What year did you take it?">
-                  <br>
-                  Professor:<br>
-                  <input type="text" name="professor" placeholder="Who did you take it with?" size="80">
-                  <br>
-                  Grade:<br>
-                  <input type="text" name="grade" placeholder="What was your grade?">
-                  <br>
-                  Course Review:<br>
-                  <input type="text" name="coursereview" style="font-size:18pt;height:200px;width:400px;">
-                  <br>
-                  Professor Review:<br>
-                  <input type="text" name="professorreview" style="font-size:18pt;height:200px;width:400px;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="text" class="form-control" required="required" placeholder="Course Code">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="text" class="form-control" required="required" placeholder="What year did you take it?">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="text" class="form-control" required="required" placeholder="Professor">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="text" class="form-control" required="required" placeholder="GPA">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form-group">
+                                <textarea name="message" id="message" required="required" class="form-control" style="min-height:200px;" placeholder="Course Review"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" id="message" required="required" class="form-control" style="min-height:200px;" placeholder="Professor Review"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-lg">Add</button>
+                            </div>
+                        </div>
+                    </div>
                 </form>
-                <button type="add" value = "  Add  " class="btn btn-success btn-lg">Add</button>
-              </div>
-                </div>
 
             </div>
-            <div class="row text-center g-pad-bottom">
-
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="alert alert-danger">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                             Praesent suscipit sem vel ipsum elementum venenatis.
-                            </div>
-                        <div class="team-member">
-                            <img src="assets/img/team/1.png" class="img-circle"    alt="">
-                            <h3><strong>ART DIRECTOR</strong></h3>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="alert alert-success">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                             Praesent suscipit sem vel ipsum elementum venenatis.
-                            </div>
-                          <div class="team-member">
-                            <img src="assets/img/team/2.png" class="img-circle"  alt="">
-                             <h3><strong>WEB DESIGNER</strong></h3>
-                        </div>
-
-
-                    </div>
-                   <div class="col-md-3 col-sm-3 col-xs-6">
-                         <div class="alert alert-warning">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                             Praesent suscipit sem vel ipsum elementum venenatis.
-                            </div>
-                        <div class="team-member">
-                            <img src="assets/img/team/4.png" class="img-circle"   alt="">
-                            <h3><strong>SUPPORT MANAGER </strong></h3>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="alert alert-info">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                             Praesent suscipit sem vel ipsum elementum venenatis.
-                            </div>
-                        <div class="team-member">
-
-                            <img src="assets/img/team/3.png" class="img-circle"    alt="">
-                            <h3><strong>SUPPORT MANAGER </strong></h3>
-                        </div>
-                    </div>
-
-
-            </div>
+          
 
 
         </div>
@@ -236,148 +205,8 @@
             </div>
            </section>
      <!--END CLIENT TESTIMONIALS SECTION-->
-    <!--PRICE SECTION-->
-     <section class="for-full-back color-bg-one" id="pricing">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-8 col-md-offset-2 ">
-                    <h1>Pricing Options</h1>
-
-                </div>
-                <div class="row text-center">
-                    <div class="col-md-8 col-md-offset-2 ">
-                        <h5>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-                        </h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="price-sec" class="for-full-back color-white">
-        <div class="container">
-            <div class="row text-center g-pad-bottom">
 
 
-                   <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="panel-danger">
-                            <div class="panel-heading">
-                             <h4>MEDIUM PLAN</h4>
-                            </div>
-                            <div class="alert alert-danger">
-
-                               <ul class="plan">
-                                   <li class="price"><strong>10</strong> <i class="fa fa-dollar"></i></li>
-                            <li><strong>52</strong> Emails</li>
-                            <li><strong>50 GB</strong> Space</li>
-                            <li><strong>Free</strong> Support</li>
-                           </ul>
-                                <a href="#" class="btn btn-danger ">BUY NOW</a>
-                            </div>
-
-                        </div>
-                    </div>
-                <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="panel-warning">
-                            <div class="panel-heading">
-                             <h4>MEDIUM PLAN</h4>
-                            </div>
-                            <div class="alert alert-warning">
-
-                               <ul class="plan">
-                                   <li class="price"><strong>25</strong> <i class="fa fa-dollar"></i></li>
-                            <li><strong>52</strong> Emails</li>
-                            <li><strong>50 GB</strong> Space</li>
-                            <li><strong>Free</strong> Support</li>
-                           </ul>
-                                 <a href="#" class="btn btn-warning ">BUY NOW</a>
-                            </div>
-
-                        </div>
-                    </div>
-                <div class="col-md-3 col-sm-3 col-xs-6 ">
-                        <div class="panel-success">
-                            <div class="panel-heading">
-                             <h4>ECONOMY PLAN</h4>
-                            </div>
-                            <div class="alert alert-success">
-
-                               <ul class="plan">
-                                   <li class="price"><strong>50</strong> <i class="fa fa-dollar"></i></li>
-                            <li><strong>52</strong> Emails</li>
-                            <li><strong>50 GB</strong> Space</li>
-                            <li><strong>Free</strong> Support</li>
-                           </ul>
-                                 <a href="#" class="btn btn-success ">BUY NOW</a>
-                            </div>
-
-                        </div>
-                    </div>
-                <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="panel-info ">
-                            <div class="panel-heading">
-                             <h4>ADVANCE PLAN</h4>
-                            </div>
-                            <div class=" alert alert-info">
-
-                               <ul class="plan">
-                                   <li class="price"><strong>125</strong> <i class="fa fa-dollar"></i></li>
-                            <li><strong>52</strong> Emails</li>
-                            <li><strong>50 GB</strong> Space</li>
-                            <li><strong>Free</strong> Support</li>
-                           </ul>
-                                 <a href="#" class="btn btn-info ">BUY NOW</a>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-            </div>
-
-
-        </div>
-    </section>
-    <!-- END PRICE SECTION-->
-
-
-    <!--STATS SECTION-->
-    <section>
-        <div class="container">
-            <div class="row ">
-                <div class="col-md-3 ">
-                    <div class="stats-div">
-                        <h3>5000+ </h3>
-                        <h4>Projects</h4>
-                    </div>
-                </div>
-
-
-                <div class="col-md-3 ">
-                    <div class="stats-div">
-                        <h3>205+ </h3>
-                        <h4>Countries</h4>
-                    </div>
-
-                </div>
-                <div class="col-md-3 ">
-
-                    <div class="stats-div">
-                        <h3>1300+ </h3>
-                        <h4>Offices</h4>
-                    </div>
-                </div>
-                <div class="col-md-3 ">
-                    <div class="stats-div">
-                        <h3>2400+ </h3>
-                        <h4>Clients</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--END STATS SECTION-->
 
     <!--CONTACT SECTION-->
     <section class="for-full-back color-bg-one" id="contact">
@@ -389,7 +218,8 @@
                 <div class="row text-center">
                     <div class="col-md-8 col-md-offset-2 ">
                         <h5>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            KAI WESHACK
+                            Alina, Pi, Nicolas, Poom
 
                         </h5>
                     </div>
@@ -400,32 +230,6 @@
     <section class="for-full-back color-white text-center" id="contact-inner">
         <div class="container">
 
-                    <h1>GET IN TOUCH</h1>
-
-                    <form>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" required="required" placeholder="Name">
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" required="required" placeholder="Email address">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <textarea name="message" id="message" required="required" class="form-control" style="min-height:200px;" placeholder="Message"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-lg">Submit Request</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
                      <div id="add">
                          <br />
                                                 New Your City, USA
